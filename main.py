@@ -6,11 +6,11 @@ camera = cv2.VideoCapture(0)
 camera.set(cv2.CAP_PROP_FRAME_WIDTH,640)
 camera.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
 classNames= [];
-classFile = "./coco.names"
+classFile = "/home/pi/opencv-test/basic-obj/coco.names"
 with open(classFile,"rt") as f:
     classNames = f.read().rstrip('\n').split('\n')
-configPath = "./ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
-weightsPath = "./frozen_inference_graph.pb"
+configPath = "/home/pi/opencv-test/basic-obj/ssd_mobilenet_v3_large_coco_2020_01_14.pbtxt"
+weightsPath = "/home/pi/opencv-test/basic-obj/frozen_inference_graph.pb"
 net = cv2.dnn_DetectionModel(weightsPath,configPath)
 net.setInputSize(320,320)
 net.setInputScale(1.0/ 127.5)
